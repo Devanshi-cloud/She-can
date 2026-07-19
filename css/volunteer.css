@@ -1,0 +1,448 @@
+/* =========================================================
+   volunteer.css - Standalone Volunteer Application Portal
+   She Can Foundation NGO Form Styling
+   Inspired by premium glassmorphism dark aesthetics
+   ========================================================= */
+
+/* Hero Section */
+.vol-hero {
+  position: relative;
+  background: #080403;
+  padding: 160px 0 80px;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.vol-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(237, 7, 7, 0.15) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.vol-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Volunteer Form Section (Deep dark background with glowing blobs) */
+.vol-form-section {
+  position: relative;
+  background: #080403;
+  padding: 100px 0 120px;
+  overflow: hidden;
+}
+
+/* Background Glowing blobs with gentle floating animation */
+.vol-glow-1 {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(237, 7, 7, 0.08) 0%, transparent 75%);
+  z-index: 1;
+  pointer-events: none;
+  animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+.vol-glow-2 {
+  position: absolute;
+  bottom: 5%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(237, 7, 7, 0.06) 0%, transparent 75%);
+  z-index: 1;
+  pointer-events: none;
+  animation: floatGlow 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatGlow {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(40px) scale(1.08); }
+}
+
+/* Split Column Grid */
+.vol-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 1024px) {
+  .vol-split-grid {
+    grid-template-columns: 1fr 1.1fr;
+    align-items: start;
+  }
+}
+
+/* Left Column: Inspiring Benefits Panel */
+.vol-info-col {
+  color: var(--white);
+}
+
+.vol-sticky-content {
+  position: sticky;
+  top: 130px;
+}
+
+.vol-info-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+
+.vol-info-desc {
+  color: var(--gray-mid);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.vol-benefit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.vol-benefit-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.benefit-icon-glow {
+  background: rgba(237, 7, 7, 0.1);
+  color: var(--red);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(237, 7, 7, 0.15);
+  transition: var(--transition);
+}
+
+.vol-benefit-item:hover .benefit-icon-glow {
+  background: var(--red);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(237, 7, 7, 0.4);
+}
+
+.vol-benefit-item h4 {
+  font-family: var(--font-head);
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+
+.vol-benefit-item p {
+  font-size: 0.88rem;
+  color: var(--gray-mid);
+  line-height: 1.6;
+}
+
+.vol-testimonial {
+  margin-top: 48px;
+  padding: 24px;
+  border-left: 3px solid var(--red);
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 0 8px 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  border-right: 1px solid rgba(255, 255, 255, 0.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.vol-testimonial p {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.vol-testimonial h5 {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Right Column: Premium Glassmorphic Form Card */
+.vol-glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.vol-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.vol-form-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  color: var(--white);
+}
+
+.vol-form-subtitle {
+  font-size: 0.88rem;
+  color: var(--gray-mid);
+}
+
+/* Form Groups */
+.form-group-vol {
+  margin-bottom: 24px;
+}
+
+.form-group-vol label {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+
+.form-group-vol .required-star {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* High-End Dark Inputs */
+.form-control-vol {
+  width: 100%;
+  padding: 15px 18px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.form-control-vol:focus {
+  outline: none;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--red);
+  box-shadow: 0 0 18px rgba(237, 7, 7, 0.25);
+}
+
+.form-control-vol::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Option elements styled dark for standard select lists */
+.form-control-vol option {
+  background: #0d0705;
+  color: var(--white);
+}
+
+/* Custom Select Dropdown Wrappers */
+.select-wrapper-vol {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper-vol select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+}
+
+.select-wrapper-vol::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.select-wrapper-vol:hover::after {
+  border-top-color: var(--red);
+}
+
+/* Textarea custom sizes */
+textarea.form-control-vol {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* Errors */
+.field-error-vol {
+  font-size: 0.8rem;
+  color: var(--red);
+  margin-top: 6px;
+  font-weight: 500;
+  display: none;
+}
+
+.field-error-vol.visible {
+  display: block;
+}
+
+.form-control-vol.error {
+  border-color: var(--red);
+  background: rgba(237, 7, 7, 0.03);
+}
+
+/* Submit Actions */
+.btn-submit-vol {
+  width: 100%;
+  margin-top: 12px;
+  padding: 16px 32px;
+  font-size: 0.88rem;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner-vol {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin-vol 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin-vol {
+  to { transform: rotate(360deg); }
+}
+
+/* Success Modal Overlays */
+.popup-overlay-vol {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 7, 5, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 24px;
+}
+
+.popup-overlay-vol.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-box-vol {
+  background: #0d0705;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 480px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup-overlay-vol.active .popup-box-vol {
+  transform: translateY(0);
+}
+
+.popup-close-vol {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.popup-close-vol:hover {
+  color: var(--red);
+}
+
+.popup-icon-vol {
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(237, 7, 7, 0.1);
+  box-shadow: 0 0 15px rgba(237, 7, 7, 0.15);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+}
+
+.popup-title-vol {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.popup-message-vol {
+  color: var(--gray-mid);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* Responsive Customization */
+@media (max-width: 768px) {
+  .vol-glass-card {
+    padding: 32px 24px;
+  }
+}

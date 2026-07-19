@@ -1,0 +1,586 @@
+/* =========================================================
+   donate.css - Dedicated Standalone Donation Page
+   She Can Foundation NGO Styling
+   ========================================================= */
+
+/* Hero Image collage grid with Deep Glow Backdrop */
+.donation-hero-collage {
+  background: radial-gradient(circle at top, rgba(237, 7, 7, 0.16) 0%, rgba(13, 7, 5, 1) 85%);
+  padding-top: 120px; /* offset fixed navbar */
+  padding-bottom: 90px;
+  color: var(--white);
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .donation-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+.donation-grid-item {
+  width: 100%;
+  aspect-ratio: 3 / 4.8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.donation-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle rotating tilts on collage items for premium layout */
+.donation-grid-item:nth-child(odd) { transform: rotate(-1deg); }
+.donation-grid-item:nth-child(even) { transform: rotate(1deg); }
+
+.donation-grid-item:hover {
+  transform: translateY(-10px) scale(1.02) rotate(0deg);
+  border-color: rgba(237, 7, 7, 0.3);
+  box-shadow: 0 20px 45px rgba(237, 7, 7, 0.25);
+}
+
+.donation-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Hero Side-by-Side Split Container */
+.donation-hero-split-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .donation-hero-split-wrap {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 70px;
+    text-align: left;
+  }
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--red);
+  background: rgba(237, 7, 7, 0.1);
+  border: 1px solid rgba(237, 7, 7, 0.2);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.donation-caption-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  margin-bottom: 35px;
+  color: var(--white);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.btn-donate-hero {
+  padding: 18px 42px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(237, 7, 7, 0.45);
+  transition: var(--transition);
+}
+
+.btn-donate-hero:hover {
+  background: var(--white);
+  color: var(--red);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.25);
+}
+
+/* Premium Hero Glass QR Code Card */
+.payment-hero-qr-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.payment-hero-qr-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(237, 7, 7, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 25px 55px rgba(237, 7, 7, 0.12);
+}
+
+/* Pulse Scan Container - Expanded for High Visibility Scannability */
+.qr-neon-beam-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4.1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+}
+
+.payment-hero-qr-card:hover .qr-neon-beam-container {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(237, 7, 7, 0.15);
+}
+
+.qr-scanner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.qr-badge-title {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.qr-badge-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* Section 2: Narrative Details */
+.donation-narrative-section {
+  background: #150f0d;
+  padding: 130px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.narrative-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.narrative-letter-heading {
+  font-family: var(--font-head);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.narrative-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 30px;
+}
+
+.narrative-blockquote {
+  border-left: 4px solid var(--red);
+  padding: 24px 30px;
+  background: rgba(237, 7, 7, 0.04);
+  border-radius: 0 8px 8px 0;
+  margin: 40px 0;
+}
+
+/* Statistical Highlight Boxes */
+.narrative-stats-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+@media (min-width: 576px) {
+  .narrative-stats-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+.stat-highlight-box {
+  background: #0d0705;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.stat-highlight-box:hover {
+  border-color: rgba(237, 7, 7, 0.2);
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.narrative-sub-title {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Arrows bullet listings */
+.narrative-list {
+  list-style: none;
+  margin: 30px 0;
+}
+
+.narrative-list.arrows li {
+  position: relative;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  padding-left: 28px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.narrative-list.arrows li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);
+  font-size: 0.9rem;
+}
+
+.narrative-outro {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+/* ==================== PREMIUM INTERACTIVE TIERS GRID ==================== */
+.donation-tiers-section {
+  margin-top: 60px;
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+@media (min-width: 576px) {
+  .tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .tiers-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+.tier-card {
+  background: #0d0705;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 35px 24px;
+  text-align: center;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tier-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(237, 7, 7, 0.25);
+  box-shadow: 0 15px 35px rgba(237, 7, 7, 0.1);
+}
+
+/* Highlight Featured Card */
+.tier-card.active {
+  border-color: var(--red);
+  box-shadow: 0 10px 30px rgba(237, 7, 7, 0.15);
+}
+
+.tier-badge-glow {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  box-shadow: 0 5px 12px rgba(237, 7, 7, 0.4);
+}
+
+.tier-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(237, 7, 7, 0.08);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.tier-card:hover .tier-icon-wrapper {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(237, 7, 7, 0.35);
+}
+
+.tier-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.tier-amount {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.tier-title {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tier-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1; /* push select button to bottom */
+}
+
+.btn-tier-select {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border-radius: 4px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.tier-card:hover .btn-tier-select {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 5px 15px rgba(237, 7, 7, 0.3);
+}
+
+.tier-card.active .btn-tier-select {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* ==================== DONATE NOW SPLIT GATEWAY ==================== */
+.donation-gateway-section {
+  background: var(--white);
+  padding: 130px 0;
+  color: var(--black);
+}
+
+.donate-now-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .donate-now-split {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 80px;
+  }
+}
+
+.donate-now-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 24px;
+}
+
+.donate-now-text {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--gray-text);
+  margin-bottom: 40px;
+}
+
+/* SIDE-BY-SIDE Actions alignment */
+.donation-horizontal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: stretch;
+  margin-top: 30px;
+}
+
+@media (min-width: 576px) {
+  .donation-horizontal-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.btn-donate-now-main {
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 8px 25px rgba(237, 7, 7, 0.4);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Clean Raw Payment QR Code Card */
+.payment-gateway-image-wrap {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  background: var(--white);
+  border: 1px solid rgba(13, 7, 5, 0.05);
+  transition: var(--transition);
+  margin-top: 15px;
+}
+
+.payment-gateway-image-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-color: rgba(237, 7, 7, 0.2);
+}
+
+.payment-gateway-raw-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlapping Offset frame layout for elderly woman picture */
+.donate-photo-frame-wrap {
+  position: relative;
+  padding: 15px 0 0 15px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.photo-frame-offset-bg {
+  position: absolute;
+  inset: 0 15px 15px 0;
+  background: var(--red);
+  border-radius: 12px;
+  z-index: 1;
+  opacity: 0.95;
+  box-shadow: 0 10px 30px rgba(237, 7, 7, 0.2);
+}
+
+.donate-photo-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  background: var(--gray-light);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.donate-photo-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.donate-photo-frame-wrap:hover .donate-photo-frame {
+  transform: translate(-6px, -6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.donate-photo-frame-wrap:hover .donate-photo-frame img {
+  transform: scale(1.02);
+}

@@ -1,0 +1,403 @@
+/* =========================================================
+   about.css - Standalone Our Story / About Us Page
+   She Can Foundation NGO Styling
+   ========================================================= */
+
+/* Hero Section */
+.about-hero {
+  height: 90vh;
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  overflow: hidden;
+  text-align: center;
+  color: var(--white);
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.65;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 7, 5, 0.7);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 90px; /* offset fixed navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-hero-tagline {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  color: var(--white);
+  opacity: 0.9;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.about-hero-headline {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 40px;
+  color: var(--white);
+}
+
+/* Centering Down Arrow Indicator */
+.about-arrow-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--white);
+  cursor: pointer;
+  animation: bounceArrow 2s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+/* General Layout Grids */
+.about-split-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .about-split-row {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+  }
+}
+
+/* Section 1: How it started */
+.how-started-section {
+  background: #0d0705;
+  padding: 120px 0;
+  color: var(--white);
+}
+
+.how-started-img-frame {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.how-started-img-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.how-started-img-frame:hover img {
+  transform: scale(1.02);
+}
+
+.how-started-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.how-started-desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+/* Section 2: What is She Can? (Centered dark brown block) */
+.what-is-section {
+  background: #150f0d;
+  padding: 125px 0;
+  text-align: center;
+  color: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.what-is-content-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.what-is-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+
+.what-is-title .accent {
+  color: var(--red);
+}
+
+.what-is-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+  line-height: 1.9;
+}
+
+/* Section 3: Our Core Focus & Impact Pillars (White Backdrop Section) */
+.about-pillars-section {
+  background: var(--white);
+  padding: 120px 0;
+  color: var(--black);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+@media (min-width: 576px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pillar-card {
+  background: #fbfbfb;
+  border: 1px solid rgba(13, 7, 5, 0.05);
+  border-radius: 8px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  background: var(--white);
+  border-color: rgba(237, 7, 7, 0.15);
+  box-shadow: 0 15px 40px rgba(237, 7, 7, 0.06);
+}
+
+.pillar-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(237, 7, 7, 0.05);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+.pillar-card:hover .pillar-icon-wrapper {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(237, 7, 7, 0.35);
+}
+
+.pillar-icon {
+  width: 28px;
+  height: 28px;
+  transition: var(--transition);
+}
+
+.pillar-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+
+.pillar-desc {
+  font-size: 0.88rem;
+  color: var(--gray-text);
+  line-height: 1.6;
+}
+
+/* Section 4: NGO Journey Timeline (Premium Alternate Dark Background Section) */
+.about-timeline-section {
+  background: #150f0d;
+  padding: 130px 0;
+  color: var(--white);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 60px auto 0 auto;
+  padding: 20px 0;
+}
+
+/* Central Red Timeline Line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red) 0%, rgba(237, 7, 7, 0.1) 100%);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 40px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item.left {
+  left: 0;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Timeline Glowing Bullet Node */
+.timeline-dot {
+  position: absolute;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 3px solid #150f0d;
+  z-index: 5;
+  transition: var(--transition);
+}
+
+.timeline-item.left .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -8px;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--white);
+  box-shadow: 0 0 15px var(--red);
+  transform: scale(1.25);
+}
+
+/* Timeline Content Card */
+.timeline-content {
+  background: #0d0705;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  border-color: rgba(237, 7, 7, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.timeline-title {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Mobile Timeline Responsiveness */
+@media (max-width: 767px) {
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .timeline-dot {
+    left: 12px !important;
+    right: auto !important;
+  }
+  
+  .timeline-content {
+    max-width: 100%;
+  }
+}
