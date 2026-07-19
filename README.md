@@ -28,8 +28,9 @@ A comprehensive, ultra-premium, and highly secure web portal for the **She Can F
 
 * **Frontend**: HTML5, CSS3, ES6+ JavaScript, Chart.js.
 * **Backend**: Node.js, Express.js.
-* **Database**: MongoDB Atlas, Mongoose ODM.
-* **Authentication**: BcryptJS (password hashing), JSON Web Token (signed session authorizations).
+* **Database**: Supabase (PostgreSQL).
+* **Authentication**: BcryptJS (password hashing), JSON Web Token (signed session authorizations), Supabase Auth.
+* **Payments**: Razorpay (one-time donations & subscriptions).
 
 ---
 
@@ -52,17 +53,25 @@ Download and install the necessary npm packages:
 npm install
 ```
 
-### 2. Configure Environment (Optional)
-Create a `.env` file in the root directory and supply your own keys:
+### 2. Configure Environment
+Create a `.env` file in the root directory and supply your Supabase credentials:
 ```env
-PORT=3000
-MONGODB_URI=your_mongodb_connection_string
+# Copy from .env.development.local
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable_your_key
+SUPABASE_SECRET_KEY=sb_secret_your_secret_key
 JWT_SECRET=your_jwt_secret_key
+PORT=3000
 ```
-*(Note: If no `.env` is supplied, the project connects to the default cloud database connection and seeds the administrator logins automatically.)*
 
-### 3. Start the Server
-Spin up the unified server:
+> **Note**: See `.env.development.local` for a complete reference with Razorpay and other settings.
+
+### 3. Seed the Database (first run only)
+```bash
+node seed.js
+```
+
+### 4. Start the Server
 ```bash
 npm start
 ```
